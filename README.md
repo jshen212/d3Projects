@@ -25,7 +25,7 @@ Skim through the official [D3 API Reference](https://github.com/mbostock/d3/wiki
 Unlike other sprints which are test driven, you will have the freedom to get creative with your pair in this sprint. Using your knowledge of fetching data from API's, find an API (or APIs) and visualize data from it however you'd like. You and your pair will be presenting your visualizations during the solution lecture time. 
 
 - [ ] Find an API to fetch data from
-- [ ] Using the data you fetched, build at least 3 of [these charts](https://github.com/mbostock/d3/wiki/Gallery)
+- [ ] Using the data you fetched, build at least 2 of [these charts](https://github.com/mbostock/d3/wiki/Gallery)
 
 Some API's you could use, but are not limited to, include:
 - [Los Angeles Open Data](https://data.lacity.org/)
