@@ -1,0 +1,24 @@
+{
+  "name": "MKS-LA-d3",
+  "homepage": "https://github.com/ethanrubio/MKS-LA-d3",
+  "authors": [
+    "Ethan Rubio <ethanrubio@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.2.0",
+    "underscore": "~1.8.3",
+    "d3": "~3.5.13"
+  }
+}
