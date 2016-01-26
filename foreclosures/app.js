@@ -7618,8 +7618,12 @@ for(var i = 0; i < zips.length; i++){
 }
 
 for(var key in zipsObj){
-  data.push(zipsObj[key]);
+  data.push([key, zipsObj[key]]);
 }
+
+
+console.log(data);
+
 
 chart.selectAll('div')
   .data(data)
@@ -7628,6 +7632,6 @@ chart.selectAll('div')
         .transition()
           .duration(2000)
             .style('width', function(d){
-              return d * .3 + 'px'; })
-                .text(function(d){
-                  return d; });
+              return d[1] * .3 + 'px'; })
+              .text(function(d){
+                return d[0];})
