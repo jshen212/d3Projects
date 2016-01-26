@@ -3,18 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <title>Foreclosures in LA in 2014</title>
-  <link rel="stylesheet" href="style.css">
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
   <script src="bower_components/underscore/underscore.js"></script>
   <script src="bower_components/d3/d3.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>D3</h1>
+  <h1>Foreclosures in Los Angeles</h1>
+  <section id="legend">
+    <div>
+      <div class="legendCircle" style="background-color: #9B59B6"></div>
+      <span>West LA</span>
+    </div>
+    <div>
+      <div class="legendCircle" style="background-color: #DF4949"></div>
+      <span>Central LA</span>
+    </div>
+    <div>
+      <div class="legendCircle" style="background-color: #F495A3"></div>
+      <span>South LA</span>
+    </div>
+    <div>
+      <div class="legendCircle" style="background-color: #E27A3F"></div>
+      <span>East LA</span>
+    </div>
+    <div>
+      <div class="legendCircle" style="background-color: #3498db"></div>
+      <span>South Bay</span>
+    </div>
+    <div>
+      <div class="legendCircle" style="background-color: #EFC94C"></div>
+      <span>Hollywood</span>
+    </div>
+    <div>
+      <div class="legendCircle" style="background-color: #45B29D"></div>
+      <span>Valley</span>
+    </div>
+  </section>
+  <section id="graph"></section>
 
 
 
-
+  <script src="data.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
