@@ -48,7 +48,7 @@ for(var key in zipsObj){
   .append('circle')
   .attr('transform', function(d) { return 'translate(' + d.x + ',' + d.y + ')'; })
   .attr('r', function(d) { return d.r; })
-  .attr('class', function(d) { return 'z' + d.className; });
+  .attr('class', function(d) { return 'z' + d.className + ' c' + d.size; });
 
   function processData(data) {
     var obj = data.zipCodes;
@@ -88,9 +88,11 @@ for(var key in zipsObj){
   });
 
   $('#graph').on('mouseover', 'circle', function(){
-    var zip = this.getAttribute('class').slice(1);
-    $('#zip').text(zip);
-    
+    var zipForeclosures = this.getAttribute('class').split(' ');
+    var zip = zipForeclosures[0].slice(1);
+    var foreclosures = zipForeclosures[1].slice(1);
+    $('#zip').text(zip + ' : ' + foreclosures);
+
   });
 
 })();
