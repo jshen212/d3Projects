@@ -12,7 +12,15 @@ var app = {
   VeniceLat: 33.9789783,
   VeniceLong: -118.46764619999999,
 
+  disneyDataObject: {},
+  LAXDataObject: {},
+  VeniceDataObject: {},
+
+
   init: function(){
+    app.getEstimatesForUserLocation(app.disneyLat, app.disneyLong);
+    app.getEstimatesForUserLocation(app.LAXlat, app.LAXlong);
+    app.getEstimatesForUserLocation(app.VeniceLat, app.VeniceLong);
   },
 
   getEstimatesForUserLocation: function(endLatitude, endLongitude) {
@@ -28,27 +36,69 @@ var app = {
         end_longitude: endLongitude
       },
       success: function(result) {
-          console.log(result) ;
+        if(endLatitude === app.disneyLat && endLongitude === app.disneyLong){
+          app.disneyDataObject = result;
         }
+        if(endLatitude === app.LAXlat && endLongitude === app.LAXlong){
+          app.LAXDataObject = result;
+        }
+        if(endLatitude === app.VeniceLat && endLongitude === app.VeniceLong){
+          app.VeniceDataObject = result;
+        }
+        console.log(app);
+      }
     });
   }
 };
 
 $(document).ready(function(){
 
+  app.init();
+
   $("#Disney").on("click", function(e){
     e.preventDefault();
-    app.getEstimatesForUserLocation(app.disneyLat, app.disneyLong);
+    $('.chart').html('');
+    var data = app.disneyDataObject.prices;
+    d3.select(".chart")
+    .selectAll("div")
+    .data(data)
+    .enter().append("div")
+    .style("width", 0)
+    .transition()
+    .duration(2000)
+    .style("width", function(d) { return d.high_estimate * 5 + "px"; })
+    .text(function(d) { return d.display_name + ' - $' + d.high_estimate; });
+
   });
 
   $("#LAX").on("click", function(e){
     e.preventDefault();
-    app.getEstimatesForUserLocation(app.LAXlat, app.LAXlong);
+    $('.chart').html('');
+    var data = app.LAXDataObject.prices;
+    d3.select(".chart")
+    .selectAll("div")
+    .data(data)
+    .enter().append("div")
+    .style("width", 0)
+    .transition()
+    .duration(2000)
+    .style("width", function(d) { return d.high_estimate * 5 + "px"; })
+    .text(function(d) { return d.high_estimate; });
   });
 
   $("#Venice").on("click", function(e){
     e.preventDefault();
-    app.getEstimatesForUserLocation(app.VeniceLat, app.VeniceLong);
+    $('.chart').html('');
+    var data = app.VeniceDataObject.prices;
+    d3.select(".chart")
+    .selectAll("div")
+    .data(data)
+    .enter().append("div")
+    .style("width", 0)
+    .transition()
+    .duration(2000)
+    .style("width", function(d) { return d.high_estimate * 5 + "px"; })
+    .text(function(d) { return d.high_estimate; });
   });
 
 });
