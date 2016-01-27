@@ -1,0 +1,36 @@
+a {
+  padding: 20px;
+  font-size: 20px;
+}
+
+body {
+  background-image: url('https://tctechcrunch2011.files.wordpress.com/2014/12/shutterstock_127795127.jpg?w=738');
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+h1 {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.buttons {
+  text-align: center;
+}
+
+.container {
+  margin-bottom: 25px;
+}
+
+.chart div {
+  font: 15px sans-serif;
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px;
+  margin: 10px;
+  color: white;
+  line-height: 25px;
+  white-space: nowrap;
+}

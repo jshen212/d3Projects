@@ -1,16 +1,31 @@
 body {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", "Roboto Light", "Segoe UI Web Light", "Segoe UI Light", "Segoe UI Web Regular", "Segoe UI", Helvetica, Arial, sans-serif;
   margin: 1em;
-  background: #293950;
+  background-color: black;
   color: #ecf0f0;
 }
 section {
   margin: 0 auto;
 }
 h1 {
-  font-weight: normal;
+  font-weight: bolder;
   font-size: 2.4em;
   margin-bottom: 0;
+}
+
+#zip {
+  height: 100px;
+  width: 150px;
+  position: absolute;
+  top: 100px;
+  left: 30px;
+  background-color: white;
+  color: red;
+  font-size: 20px;
+  font-weight: bolder;
+  text-align: center;
+  line-height: 100px;
+  border-radius: 20%;
 }
 
 #legend {
@@ -73,4 +88,8 @@ h1 {
 .z91351, .z91352, .z91356, .z91364, .z91367, .z91401, .z91402, .z91403, .z91405, .z91406, .z91411, .z91423, .z91436, .z91504, .z91505 {
   fill: #45B29D;
   background: #45B29D;
+}
+
+#graph {
+  text-align: center;
 }
