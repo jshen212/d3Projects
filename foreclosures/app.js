@@ -21,11 +21,6 @@ for(var key in zipsObj){
   data.push([key, zipsObj[key]]);
 }
 
-var uniqZips = [];
-for(var key in zipsObj){
-  uniqZips.push(key);
-}
-
 (function() {
 
   var json = {"zipCodes":
