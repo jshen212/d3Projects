@@ -12,15 +12,25 @@ var app = {
   VeniceLat: 33.9789783,
   VeniceLong: -118.46764619999999,
 
+  HollywoodLat: 34.1020231,
+  HollywoodLong: -118.3409712,
+
+  HBLat: 33.660297,
+  HBLong: -117.9992265,
+
   disneyDataObject: {},
   LAXDataObject: {},
   VeniceDataObject: {},
+  HollywoodObject: {},
+  HBObject: {},
 
 
   init: function(){
     app.getEstimatesForUserLocation(app.disneyLat, app.disneyLong);
     app.getEstimatesForUserLocation(app.LAXlat, app.LAXlong);
     app.getEstimatesForUserLocation(app.VeniceLat, app.VeniceLong);
+    app.getEstimatesForUserLocation(app.HollywoodLat, app.HollywoodLong);
+    app.getEstimatesForUserLocation(app.HBLat, app.HBLong);
   },
 
   getEstimatesForUserLocation: function(endLatitude, endLongitude) {
@@ -45,20 +55,24 @@ var app = {
         if(endLatitude === app.VeniceLat && endLongitude === app.VeniceLong){
           app.VeniceDataObject = result;
         }
-        console.log(app);
+        if(endLatitude === app.HollywoodLat && endLongitude === app.HollywoodLong){
+          app.HollywoodDataObject = result;
+        }
+        if(endLatitude === app.HBLat && endLongitude === app.HBLong){
+          app.HBDataObject = result;
+        }
       }
     });
   }
 };
 
+
+
 $(document).ready(function(){
 
   app.init();
 
-  $("#Disney").on("click", function(e){
-    e.preventDefault();
-    $('.chart').html('');
-    var data = app.disneyDataObject.prices;
+  function createChart(data){
     d3.select(".chart")
     .selectAll("div")
     .data(data)
@@ -68,37 +82,40 @@ $(document).ready(function(){
     .duration(2000)
     .style("width", function(d) { return d.high_estimate * 5 + "px"; })
     .text(function(d) { return d.display_name + ' - $' + d.high_estimate; });
+  }
 
+  $("#Disney").on("click", function(e){
+    e.preventDefault();
+    $('.chart').html('');
+    var data = app.disneyDataObject.prices;
+    createChart(data);
   });
 
   $("#LAX").on("click", function(e){
     e.preventDefault();
     $('.chart').html('');
     var data = app.LAXDataObject.prices;
-    d3.select(".chart")
-    .selectAll("div")
-    .data(data)
-    .enter().append("div")
-    .style("width", 0)
-    .transition()
-    .duration(2000)
-    .style("width", function(d) { return d.high_estimate * 5 + "px"; })
-    .text(function(d) { return d.high_estimate; });
+    createChart(data);
   });
 
   $("#Venice").on("click", function(e){
     e.preventDefault();
     $('.chart').html('');
     var data = app.VeniceDataObject.prices;
-    d3.select(".chart")
-    .selectAll("div")
-    .data(data)
-    .enter().append("div")
-    .style("width", 0)
-    .transition()
-    .duration(2000)
-    .style("width", function(d) { return d.high_estimate * 5 + "px"; })
-    .text(function(d) { return d.high_estimate; });
+    createChart(data);
   });
 
+  $("#Hollywood").on("click", function(e){
+    e.preventDefault();
+    $('.chart').html('');
+    var data = app.HollywoodDataObject.prices;
+    createChart(data);
+  });
+
+  $("#HuntingtonBeach").on("click", function(e){
+    e.preventDefault();
+    $('.chart').html('');
+    var data = app.HBDataObject.prices;
+    createChart(data);
+  });
 });
